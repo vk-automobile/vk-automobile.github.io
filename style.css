@@ -579,7 +579,7 @@ main.two-column {
 
 /* KONTAKT SEITE */
 .kontakt-bereich {
-    padding: 100px 20px;
+    padding: 160px 20px 100px 20px;
     max-width: 1200px;
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.9);
