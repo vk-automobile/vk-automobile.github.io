@@ -1,0 +1,696 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ------------------ BODY / HINTERGRUND ------------------ */
+body {
+    padding-top: 80px;
+    /* Abstand oben für die Navbar */
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    background: #020214;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+
+    background-size: 400% 400%;
+    animation: gradientMove 20s ease infinite;
+    color: #ffffff;
+    position: relative;
+    z-index: 0;
+
+    /* Mobile-Anpassung */
+    @media (max-width: 600px) {
+        body {
+            font-size: 16px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: block;
+        }
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body::before {
+    display: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('./noise.svg');
+    opacity: 0.08;
+    z-index: -1;
+    animation: subtleNoiseMove 20s ease-in-out infinite;
+}
+
+@keyframes subtleNoiseMove {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(2%, 2%);
+    }
+}
+
+/* ------------------ NAVBAR ------------------ */
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(300px);
+    /* Für Glas optik*/
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    border: 1.5px solid rgba(225, 225, 225, 0.18);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: #ffffff;
+}
+
+.logo img {
+    height: 40px;
+    /* oder gewünschte Höhe */
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links li a:link,
+.nav-links li a:visited,
+.nav-links li a:active {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    display: inline-block;
+}
+
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.nav-links li a.active {
+    color: #91C9FF;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* ------------------ HEADER + TEXTE ------------------ */
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 140px 20px 60px;
+    text-align: center;
+}
+
+.glow-title {
+    font-size: 3.5rem;
+    font-weight: 400;
+    /* dicke Schrift */
+    background: linear-gradient(90deg, #fafafa, #bfbfbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+    padding: 0 20px;
+    margin-bottom: 32px;
+    /* Abstand zur Subheadline */
+}
+
+.subheadline {
+    font-size: 1.3rem;
+    /* leicht größer */
+    font-weight: 400;
+    color: rgba(250, 250, 250, 0.6);
+    margin-bottom: 56px;
+    /* Abstand zum Button */
+}
+
+.glass-header-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 800px;
+    /* begrenzte Breite */
+    width: 90%;
+    /* flexibel auf kleineren Screens */
+    margin: 0 auto;
+    /* horizontal zentriert */
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.hero-header {
+    width: 100%;
+    min-height: 100vh;
+    /* Dynamisch, schneidet nichts ab */
+    background-image: url('../tacho-service.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px 60px;
+
+    /* oben Platz für Navbar */
+    position: relative;
+    z-index: 0;
+    text-align: center;
+}
+
+
+
+
+
+
+
+/* ------------------ INHALTSBEREICH ------------------ */
+main.two-column {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.left,
+.right {
+    flex: 1 1 300px;
+    max-width: 600px;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* ------------------ BUTTON STIL ------------------ */
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+.container {
+    width: 400px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.center {
+    width: 180px;
+    height: 60px;
+    position: relative;
+
+}
+
+.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    position: relative;
+    overflow: hidden;
+    /* verhindert Überlauf außerhalb des Buttons */
+}
+
+svg {
+    display: block;
+    overflow: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    pointer-events: none;
+}
+
+.bg-line {
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1;
+}
+
+.hl-line {
+    stroke: #91C9FF;
+    /* Dunkelblauer Glow */
+    fill: none;
+    stroke-width: 0.5;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.btn:hover .hl-line {
+    stroke-dashoffset: 0;
+}
+
+
+.btn span {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+
+
+/* Bild tacho */
+.image-card.parallax {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../tacho-service.jpeg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    background-size: cover;
+    /* Parallax-Effekt */
+    border-radius: 20px;
+    margin-bottom: 30px;
+
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+
+/* Für die Kasten */
+/* ------------------ KÄSTENBEREICH ------------------ */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    /* Wichtig: sorgt dafür, dass die Kinder-Elemente untereinander angeordnet werden */
+    align-items: center;
+    /* zentriert die Karten horizontal */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    /* sorgt dafür, dass Inhalte untereinander stehen */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    /* groeße der Karte*/
+    height: 400px;
+    padding: 60px;
+    margin: 20px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card h2 {
+    z-index: 1;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px 20px;
+    z-index: 1;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120%;
+    background-image: linear-gradient(180deg, rgb(78, 141, 189), rgb(25, 156, 179));
+    animation: rotBGimg 13s linear infinite;
+    transition: all 0.2s linear;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    background: #020214;
+    ;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* VK-Karte */
+.hero-card {
+    width: 100%;
+    min-height: 400px;
+    background: url('../auto.jpg') no-repeat center right;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    margin-top: 80px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+    z-index: 0;
+}
+
+.hero-content {
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid #91C9FF;
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.hero-btn:hover {
+    background: #91C9FF;
+    color: #000;
+}
+
+/* Service Seite*/
+.service-header {
+    padding: 160px 20px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.glow-title {
+    font-size: 3.2rem;
+    background: linear-gradient(90deg, #ffffff, #bcbcbc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.05));
+    margin-bottom: 20px;
+}
+
+main.two-column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Leistungen*/
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.leistungen-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.leistungen-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.leistungen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.service-card h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+/* Unternehmensinfo*/
+.Unternehmensinfo {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.Unternehmensinfo .subheadline {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+
+
+/* KONTAKT SEITE */
+.kontakt-bereich {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.kontakt-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.kontakt-links,
+.kontakt-rechts {
+    flex: 1 1 400px;
+}
+
+.kontakt-links h2,
+.kontakt-rechts h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.kontakt-links p,
+.kontakt-rechts ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.kontakt-rechts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.kontakt-rechts li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+
+    /* Tablet-Anpassungen */
+    .glow-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        background-position: center;
+        padding: 40px 20px;
+    }
+
+    .kontakt-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* ANPASSUNGEN FÜR HANDY UND TABLETT */
+@media (max-width: 600px) {
+    /* Handy-Anpassungen */
+
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .glow-title {
+        font-size: 2rem;
+    }
+
+    .subheadline {
+        font-size: 1rem;
+    }
+
+    .card {
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .center {
+        width: 100%;
+    }
+
+    .image-card.parallax {
+        height: 250px;
+        background-attachment: scroll;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
