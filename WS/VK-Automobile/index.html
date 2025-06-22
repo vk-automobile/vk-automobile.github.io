@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <!-- Anpassen der Größe -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8" />
+    <title>VK-Automobile</title>
+
+    <!-- Schriftart: Work Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../logo-header.png" alt="Logo" />
+            </a>
+        </div>
+        <ul class="nav-links">
+            <a href="service.html">Service</a>
+            <a href="kontakt.html">Kontakt</a>
+        </ul>
+    </nav>
+
+    <header class="hero-header">
+        <div class="glass-header-box">
+            <h1 class="glow-title">VK - Automobile<br>Ihr Fahrzeug in besten Händen</h1>
+            <p class="shine-text subheadline">Willkommen bei VK-Automobile – Ihr zuverlässiger Partner rund ums Auto</p>
+            <!-- <button class="btn">Service</button> -->
+        </div>
+    </header>
+    <!-- <div class="tacho-overlay"></div>-->
+
+
+    <!-- Button -->
+    <div class="container">
+        <div class="center">
+            <button class="btn" onclick="location.href='service.html'">
+                <svg width="180" height="60" viewBox="0 0 180 60">
+                    <rect x="1" y="1" width="178" height="58" rx="30" ry="30" class="bg-line" />
+                    <rect x="1" y="1" width="178" height="58" rx="30" ry="30" class="hl-line" />
+                </svg>
+                <span>Service</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Abstand -->
+    <!-- Bildabschnitt -->
+    <div class="image-card parallax"></div>
+
+
+    <!-- Kasten -->
+    <div class="cards-container">
+
+        <!-- Kasten -->
+        <div class="cards-container">
+            <!-- Karte 1 -->
+            <div class="card">
+                <h2>Individuelle Beratung</h2>
+                <p>Wir nehmen uns Zeit für Ihre Anliegen und finden die passende Lösung.</p>
+            </div>
+            <div class="card">
+                <h2>Zuverlässiger Service</h2>
+                <p>Wir arbeiten termingerecht und gewissenhaft.</p>
+            </div>
+            <div class="card">
+                <h2>Alles aus einer Hand</h2>
+                <p>Unser breites Angebot spart Ihnen Zeit und Wege.</p>
+            </div>
+        </div>
+
+
+
+
+
+
+        <section class="hero-card" data-aos="fade-up">
+            <div class="hero-content">
+                <h2>VK-Automobile</h2>
+                <p>Ihr Partner an Ihrer Seite, wenn’s ums Auto geht.</p>
+                <button class="btn" onclick="location.href='kontakt.html'">
+                    <svg width="180" height="60" viewBox="0 0 180 60">
+                        <rect x="1" y="1" width="178" height="58" rx="30" ry="30" class="bg-line" />
+                        <rect x="1" y="1" width="178" height="58" rx="30" ry="30" class="hl-line" />
+                    </svg>
+                    <span>Kontakt</span>
+                </button>
+            </div>
+        </section>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800, // Animationsdauer in ms
+                once: false     // beim Scrollen auslösen, wiederholt sich
+            });
+        </script>
+
+
+
+</body>
+
+</html>
