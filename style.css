@@ -637,6 +637,25 @@ main.two-column {
         flex-direction: column;
         gap: 30px;
     }
+     /* Telefon-Link weiß */
+    a[href^="tel"] {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    a[href^="tel"]:visited {
+        color: #ffffff;
+    }
+
+    /* E-Mail-Link weiß */
+    a[href^="mailto"] {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    a[href^="mailto"]:visited {
+        color: #ffffff;
+    }
 }
 
 /* ANPASSUNGEN FÜR HANDY UND TABLETT */
